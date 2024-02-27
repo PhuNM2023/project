@@ -1,5 +1,5 @@
 import { Box, Button, Drawer, Grid, Pagination } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import OptionViewComponent from "./component/optionViewComponent";
 import FilterProductComponent from "./component/filterProductComponent";
 import { useSelector } from "react-redux";
@@ -110,8 +110,11 @@ const ListProductShop = ({listProduct}:ListProductProps) => {
     setListProductShop(listProduct);
   }, [listProduct]);
 
+
+  const newPageNumber = useMemo(()=>Math.ceil(listProductShop.length / productQuantity),[listProductShop,productQuantity]) ; 
+
   useEffect(() => {
-    setPageNumber(Math.ceil(listProductShop.length / productQuantity));
+    setPageNumber(newPageNumber);
     const startIndex = (currentPage - 1) * productQuantity;
     const endIndex = startIndex + productQuantity;
     const newListProductPage = listProductShop.slice(startIndex, endIndex);

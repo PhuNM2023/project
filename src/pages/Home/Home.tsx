@@ -57,7 +57,6 @@ const Home = () => {
                           </NavLink>       
                           </div>
                         </div>       
-
                     </Box>
             ))}
         </Slider>

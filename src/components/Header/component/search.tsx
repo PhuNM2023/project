@@ -1,13 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../features/Redux/Store/store";
-import {
-  Box,
-  Button,
-  CardMedia,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Box, Button, CardMedia, Grid, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import styles from "../Header.module.css";
 import { IProduct } from "../../../Types/models";
@@ -26,8 +20,9 @@ const Search = ({ onhandleOpen }: OpenDrawerProps) => {
   const [searchValue, setSearchValue] = useState<string>("A");
   const [searchData, setSearchData] = useState<IProduct[] | []>([]);
 
+  const newSearchData = useMemo(()=>SearchProduct(listProduct,searchValue),[listProduct,searchValue]) ; 
+
   useEffect(() => {
-    const newSearchData = SearchProduct(listProduct, searchValue);
     setSearchData(newSearchData);
   }, [searchValue]);
 
@@ -41,9 +36,6 @@ const Search = ({ onhandleOpen }: OpenDrawerProps) => {
   };
 
   const navigate = useNavigate();
-  const handleClick = (productItem: IProduct) => {
-    navigate(`/product/${productItem.id}`, { state: productItem });
-  };
   return (
     <Box className="my-4 px-4" sx={{ height: "500px" }}>
       <Grid container className="justify-content-center d-flex">
