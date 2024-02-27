@@ -53,5 +53,6 @@
   border-bottom-left-radius: 4px;
 }
 
-/* .headernavbarusermenu {
-} */
+.borderBottomSearch {
+  border-bottom: 2px solid black;
+}
