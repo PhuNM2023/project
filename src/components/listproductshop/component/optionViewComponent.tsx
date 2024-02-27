@@ -172,8 +172,12 @@ const OptionViewComponent = ({
                   inputProps={{
                     name: "age",
                     id: "uncontrolled-native",
+                    sx:{
+                      padding:'0px'
+                    }
                   }}
                   onChange={handleSelectSort}
+                  
                 >
                   <option value={1}>Default sorting</option>
                   <option value={2}>Sort by price:low to high</option>

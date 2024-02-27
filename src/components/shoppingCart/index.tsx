@@ -69,10 +69,10 @@ const ShoppingCart: React.FC<IShoppingCartProps> = ({
         {newProducts.map((product: any) => (
           <div key={product.id} className={styles.listItem}>
             <Grid className={styles.product} container spacing={4}>
-              <Grid xs={3}>
+              <Grid xs={3} item>
                 <img src={product.images[0]} alt="" className={styles.img} />
               </Grid>
-              <Grid xs={8} className={styles.product}>
+              <Grid xs={8} className={styles.product} item>
                 <p
                   className={styles.name}
                 >{`${product.name} - ${product.size} - months, ${product.color}`}</p>
@@ -83,7 +83,7 @@ const ShoppingCart: React.FC<IShoppingCartProps> = ({
                   }`}</span>
                 </p>
               </Grid>
-              <Grid xs={1}>
+              <Grid xs={1} item>
                 <div
                   className={styles.deleteIcon}
                   onClick={() => dispatch(handleDeleteProduct(product))}
