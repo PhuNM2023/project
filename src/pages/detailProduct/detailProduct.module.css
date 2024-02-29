@@ -1,7 +1,10 @@
-.slidercontainer {
+
+
+ .slidercontainer {
     position: relative;
     overflow: hidden;
-    
+    display: flex;
+    justify-content: center;
 }
 
 .prevArrow,
@@ -67,7 +70,32 @@
 }
 .hung{
     padding: 80px;
+    padding-bottom: 0px;
+    padding-top: 20px;
 }
+.icon {
+    color: black;
+    font-size: small;
+}
+.ficon {
+    color: black;
+}
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.removeRedEyeIcon {
+    color: rgb(34, 71, 204);
+    margin: 2px;
+}
+.facebook {
+    color: black;
+    font-size: 24px;
+}
+
+
+
 
 
 

@@ -1,5 +1,4 @@
 import { Stack } from "@mui/material";
-import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./NavShop.module.css";
 
@@ -26,9 +25,7 @@ const NavShop = () => {
         </div>
         <div className="mt-2"><i className="fa-solid fa-arrow-right"></i></div>
         <div className="nav-item p-2 flex-fill">
-          <NavLink to="/orderComplete" className="nav-link ">
             ORDER COMPLETE
-          </NavLink>
         </div>
       </div>
     </Stack>

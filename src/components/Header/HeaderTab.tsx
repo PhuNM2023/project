@@ -102,12 +102,14 @@ const HeaderTab = () => {
           </div>
 
           <div className="nav-item p-2 flex-fill">
+          <NavLink to="/cart" className="nav-link" style={{ fontSize: 25 }}>
             <Tooltip title="Shopping cart">
               <IconButton>
                 <FaShoppingBag />
                 <span className="carousel"></span>
               </IconButton>
             </Tooltip>
+            </NavLink>
           </div>
         </div>
       </div>

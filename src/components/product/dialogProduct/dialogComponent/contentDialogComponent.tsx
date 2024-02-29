@@ -26,6 +26,7 @@ const ContentDialogComponent = () => {
   const handleChange = (event: SelectChangeEvent) => {
     setSize(event.target.value);
   };
+  console.log("productItem", productItem);
 
   return (
     productItem && (

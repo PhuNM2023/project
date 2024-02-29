@@ -24,6 +24,9 @@ const ShoppingCart: React.FC<IShoppingCartProps> = ({
     (state: RootState) => state.reducer.productSlice.listProduct
   );
 
+  const listCart = useSelector(
+    (state: RootState) => state.reducer.cartSlice.listProductCart
+  );
   const navigate = useNavigate();
 
   const handleViewCart = () => {
@@ -36,7 +39,7 @@ const ShoppingCart: React.FC<IShoppingCartProps> = ({
 
   const [newProducts, setNewProducts] = useState<never[]>([]);
   useEffect(() => {
-    const result: any = products
+    const result: any = listCart
       .map((item) => {
         let newItem: any;
         listProduct.forEach((product) => {
@@ -49,7 +52,7 @@ const ShoppingCart: React.FC<IShoppingCartProps> = ({
       })
       .filter((item) => item);
     setNewProducts(result);
-  }, [products, listProduct]);
+  }, [listCart]);
 
   const totalPrice = newProducts.reduce((total, product: any) => {
     return total + (product.price * product.quantity * product.discount) / 100;
@@ -57,7 +60,12 @@ const ShoppingCart: React.FC<IShoppingCartProps> = ({
   const totalPriceFixed = totalPrice.toFixed(2);
 
   return (
-    <Drawer anchor="right" open={isOpen} onClose={onClose}>
+    <Drawer
+      anchor="right"
+      open={isOpen}
+      onClose={onClose}
+      className={styles.drawer}
+    >
       <div className={styles.divShopping}>
         <h5>Shopping cart</h5>
         <h6 className={styles.closeBtn} onClick={onClose}>
@@ -68,7 +76,7 @@ const ShoppingCart: React.FC<IShoppingCartProps> = ({
       <div className={styles.list}>
         {newProducts.map((product: any) => (
           <div key={product.id} className={styles.listItem}>
-            <Grid className={styles.product} container spacing={4}>
+            <Grid className={styles.product} container spacing={3}>
               <Grid xs={3} item>
                 <img src={product.images[0]} alt="" className={styles.img} />
               </Grid>
@@ -83,7 +91,7 @@ const ShoppingCart: React.FC<IShoppingCartProps> = ({
                   }`}</span>
                 </p>
               </Grid>
-              <Grid xs={1} item>
+              <Grid xs={1} className="ps-2" item>
                 <div
                   className={styles.deleteIcon}
                   onClick={() => dispatch(handleDeleteProduct(product))}
@@ -98,10 +106,10 @@ const ShoppingCart: React.FC<IShoppingCartProps> = ({
       </div>
       <Grid container className={styles.footer}>
         <Grid container>
-          <Grid item className="ps-3" xs={9}>
+          <Grid item className="ps-3" xs={8}>
             <h5>Subtotal: </h5>
           </Grid>
-          <Grid item className="ps-2" xs={3}>
+          <Grid item className="ps-3" xs={4}>
             <h5 className="text-primary">{`$ ${totalPriceFixed}`} </h5>
           </Grid>
         </Grid>

@@ -22,11 +22,9 @@ import OrderComplete from "./pages/orderComplete";
 import { RootState } from "./features/Redux/Store/store";
 import { handleGetDataLocalStorage } from "./features/Redux/Reducers/cartSlice";
 import CategoryProduct from "./pages/categoryProduct/categoryProduct";
-
+import ScrollToTop from "./components/ScrollOnTop";
 
 function App() {
-
-
   const dispatch = useDispatch();
   if (!localStorage.getItem("listProductCart")) {
     localStorage.setItem("listProductCart", JSON.stringify([]));

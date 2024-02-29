@@ -3,7 +3,7 @@
 .divShopping {
   display: flex;
   justify-content: space-between;
-  margin: 18px 12px 0px 12px;
+  margin: 10px 12px 0px 12px;
   min-width: 220px;
 }
 
@@ -12,12 +12,12 @@
   margin-top: 5px
 }
 
-.img {
-  width: 64px;
+.img {  
+  width: 80px;
   border-radius: 5px;
-  margin-top : 30px;
-  margin-left: 36px;
-  margin-right: 20px;
+  margin-top : -5px;
+  margin-left: 5px;
+  margin-bottom: 6px;
   
 }
 
@@ -29,21 +29,21 @@
 .name{
   font-size: 14px;
   font-weight: 500;
-  margin-left: 20px;
-  max-width: 200px;
+  max-width: 180px;
   opacity: 0.8;
-  margin-top: 5px;
+  padding-left: 20px;
+  margin-top: -10px;
 }
 
 .product {
-  margin: 10px -10px -15px 0;
-  padding: 10px;
+  margin: 10px -10px -15px 20px;
+  padding: 10px ;
 }
 
 .deleteIcon {
   cursor: pointer;
-  margin-top: 25px;
-  margin-left: 16px;
+  padding-top: 25px;
+  opacity: 0.5;
 }
 
 .quantity {

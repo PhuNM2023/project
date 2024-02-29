@@ -13,10 +13,9 @@ import CloseIcon from "@mui/icons-material/Close";
 import styles from "./shop.module.css";
 
 interface ListProductProps {
-  listProduct:IProduct[] ; 
+  listProduct: IProduct[];
 }
-const ListProductShop = ({listProduct}:ListProductProps) => {
- 
+const ListProductShop = ({ listProduct }: ListProductProps) => {
   const [listProductShop, setListProductShop] = useState<IProduct[]>([]);
   const [listProductPage, setListProductPage] = useState<IProduct[]>([]);
   const [pageNumber, setPageNumber] = useState<number>(0);
@@ -110,9 +109,10 @@ const ListProductShop = ({listProduct}:ListProductProps) => {
     setListProductShop(listProduct);
   }, [listProduct]);
 
-
-  const newPageNumber = useMemo(()=>Math.ceil(listProductShop.length / productQuantity),[listProductShop,productQuantity]) ; 
-
+  const newPageNumber = useMemo(
+    () => Math.ceil(listProductShop.length / productQuantity),
+    [listProductShop, productQuantity]
+  );
   useEffect(() => {
     setPageNumber(newPageNumber);
     const startIndex = (currentPage - 1) * productQuantity;
